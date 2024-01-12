@@ -16,6 +16,7 @@ public:
     void printInfo() const override;
     void setWingspan(const double);
     double getWingspan() const;
+    string getType() const;
 };
 
 

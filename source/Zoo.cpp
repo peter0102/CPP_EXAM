@@ -39,10 +39,19 @@ void Zoo::listAnimals() {
 }
 
 void Zoo::addAnimal(Animal* animal) {
-    string animalName
     if (animals.size() < MAX_CAPACITY) {
+        animals.push_back(animal);
     } else {
         cout << "Zoo is full" << endl;
+    }
+    for (int i = 0; i < animals.size(); i++) {
+        for (int j = i + 1; j < animals.size(); j++) {
+            if (animals[i]->getName() > animals[j]->getName()) {
+                Animal* temp = animals[i];
+                animals[i] = animals[j];
+                animals[j] = temp;
+            }
+        }
     }
 }
 
@@ -72,7 +81,7 @@ int Zoo::binarySearchAnimalByName(const std::string &searchName) {
 }
 
 void Zoo::removeAnimalByName(const string &searchName) {
-    int index = binarySearchAnimalByName(searchName);
+    int index = searchAnimalByName(searchName);
     if (index != -1) {
         animals.erase(animals.begin() + index);
     } else {
@@ -81,11 +90,25 @@ void Zoo::removeAnimalByName(const string &searchName) {
 }
 
 int Zoo::AgeForType(const Animal &type) {
-    int age = 0;
+    string animalType = typeid(type).name();
+    string result = "";
+    for (char ch : animalType) {
+        if (isalpha(ch))
+            result.push_back(ch);
+    }
+    int totalAge = 0;
+    int count = 0;
     for (int i = 0; i < animals.size(); i++) {
-        if (typeid(*animals[i]) == typeid(type)) {
-            age += animals[i]->getAge();
+        string result2 = "";
+        string currentAnimalType = typeid(*animals[i]).name();
+        for (char ch : currentAnimalType) {
+            if (isalpha(ch))
+                result2.push_back(ch);
+        }
+        if (currentAnimalType == animalType) {
+            totalAge += animals[i]->getAge();
+            count++;
         }
     }
-    return age;
+    return totalAge / count;
 }

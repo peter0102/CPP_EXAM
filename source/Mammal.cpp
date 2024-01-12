@@ -44,3 +44,7 @@ string Mammal::getFurColor() const {
     return furColor;
 }
 
+string Mammal::getType() {
+    return "Mammal";
+}
+

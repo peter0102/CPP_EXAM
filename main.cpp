@@ -38,6 +38,18 @@ int main() {
     int index = z1.searchAnimalByName("Elephant");
     cout << "Index of Elephant in the zoo list: " << index << endl;
 
+    z1.removeAnimalByName("Elephant");
 
+    cout << "Index of Elephant in the zoo list after deletion: " << z1.searchAnimalByName("Elephant") << endl;
 
+    int age = z1.AgeForType(r1);
+    cout << "Average age of Mammals in the zoo: " << age << endl;
+
+    z1.addAnimal(&m2);
+    cout << "Elephant added again" << endl;
+    int index2 = z1.searchAnimalByName("Elephant");
+    cout << "Index of Elephant in the zoo list: " << index2 << endl;
+
+    int index3 = z1.binarySearchAnimalByName("Elephant");
+    cout << "Index of Elephant in the zoo list using binary: " << index3 << endl;
 }

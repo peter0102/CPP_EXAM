@@ -18,6 +18,7 @@ Reptile();
     void printInfo() const override;
     void setScalePattern(const string&);
     string getScalePattern() const;
+    string getType();
 };
 
 

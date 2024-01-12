@@ -42,3 +42,7 @@ void Reptile::setScalePattern(const string& newScalePattern) {
 string Reptile::getScalePattern() const {
     return scalePattern;
 }
+
+string Reptile::getType() {
+    return "Reptile";
+}

@@ -45,3 +45,8 @@ void Bird::setWingspan(const double newWingspan) {
 double Bird::getWingspan() const {
     return wingspan;
 }
+
+string Bird::getType() const {
+    return "Bird";
+}
+

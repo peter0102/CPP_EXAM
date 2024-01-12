@@ -15,6 +15,7 @@ class Mammal : public Animal {
     void printInfo() const override ;
     void setFurColor(const string&);
     string getFurColor() const;
+    string getType();
 private:
     string furColor;
 };
